@@ -31,7 +31,6 @@
   /* ===== 追従CTA ===== */
   .floating-cta { position: fixed; left: 50%; bottom: calc(12px + env(safe-area-inset-bottom)); transform: translateX(-50%) translateY(130%); width: min(390px, calc(100vw - 28px)); min-height: 56px; padding: 0 18px; border-radius: 999px; background: linear-gradient(180deg, #ffdc3e 0%, #f4c400 100%); box-shadow: 0 5px 0 #c69700, 0 10px 24px rgba(0,0,0,.35); color: #111; font-family: 'Noto Sans JP', sans-serif; font-size: 17px; font-weight: 900; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 8px; z-index: 999; opacity: 0; pointer-events: none; transition: transform .22s ease, opacity .22s ease; }
   .floating-cta.is-visible { transform: translateX(-50%) translateY(0); opacity: 1; pointer-events: auto; }
-  .floating-cta { display: none !important; }
 
   /* ===== 右下固定FAB（スクロール後に出現） ===== */
   .fab { position: fixed; right: 14px; bottom: calc(14px + env(safe-area-inset-bottom)); display: flex; align-items: center; gap: 10px; z-index: 999; opacity: 0; transform: translateY(20px); pointer-events: none; transition: opacity .25s ease, transform .25s ease; font-family: 'Noto Sans JP', sans-serif; }
@@ -45,10 +44,12 @@
   /* ===== CTAパルス（2.5s） ===== */
   @keyframes cta-pulse-scale { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.025); } }
   @keyframes cta-pulse-glow { 0%, 100% { box-shadow: 0 5px 0 #057d2b, 0 8px 16px rgba(0,0,0,.2), 0 0 0 0 rgba(20,201,90,.45); } 50% { box-shadow: 0 5px 0 #057d2b, 0 8px 16px rgba(0,0,0,.2), 0 0 0 8px rgba(20,201,90,0); } }
+  @keyframes cta-pulse-float { 0%, 100% { box-shadow: 0 5px 0 #c69700, 0 10px 24px rgba(0,0,0,.35), 0 0 0 0 rgba(255,220,62,.55); } 50% { box-shadow: 0 5px 0 #c69700, 0 10px 24px rgba(0,0,0,.35), 0 0 0 9px rgba(255,220,62,0); } }
   .fv-cta-button, .ab-cta-button, .sec03-cta-button, .sec04-cta-button, .sec05-cta-button { animation: cta-pulse-scale 2.5s ease-in-out infinite; }
   .sec06-submit { animation: cta-pulse-glow 2.5s ease-in-out infinite; }
+  .floating-cta.is-visible { animation: cta-pulse-float 2.5s ease-in-out infinite; }
   @media (prefers-reduced-motion: reduce) {
-    .fv-cta-button, .ab-cta-button, .sec03-cta-button, .sec04-cta-button, .sec05-cta-button, .sec06-submit { animation: none; }
+    .fv-cta-button, .ab-cta-button, .sec03-cta-button, .sec04-cta-button, .sec05-cta-button, .sec06-submit, .floating-cta.is-visible { animation: none; }
   }
 
   /* ===== FV ===== */
