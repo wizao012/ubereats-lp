@@ -898,6 +898,7 @@
   .sec06-qa-plus::after { top: 50%; left: 0; height: 3px; width: 100%; transform: translateY(-50%); }
   .sec06-qa-item[open] .sec06-qa-plus::before { transform: translateX(-50%) scaleY(0); }
   .sec06-qa-note { margin: 4px 2px 0; color: #555; font-size: 12px; font-weight: 600; line-height: 1.6; text-align: center; }
+  .risk-note { margin: 0; padding: 8px 18px 0; color: rgba(255,255,255,.72); font-size: 11px; font-weight: 600; line-height: 1.5; text-align: center; font-family: 'Noto Sans JP', sans-serif; }
 
   /* フォーム */
   .sec06-form-head { text-align: center; margin-bottom: 4px; }
