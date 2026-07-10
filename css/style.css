@@ -737,7 +737,7 @@
   .sec04-subhead .text { flex: 0 0 auto; color: #7a7a7a; font-size: 3.6cqw; font-weight: 700; white-space: nowrap; }
 
   /* 右上ウーバマン（表の右上コーナーに固定） */
-  .sec04-uberman { position: absolute; top: -20cqw; right: -1cqw; width: 26cqw; height: auto; display: block; z-index: 4; pointer-events: none; }
+  .sec04-uberman { position: absolute; top: -21cqw; right: -1cqw; width: 26cqw; height: auto; display: block; z-index: 4; pointer-events: none; transform: rotate(-4deg); transform-origin: bottom center; }
   .sec04-uberman img { width: 100%; height: auto; display: block; }
 
   /* 比較表 */
