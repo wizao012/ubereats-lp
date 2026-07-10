@@ -169,3 +169,49 @@ document.addEventListener('DOMContentLoaded', function () {
   window.addEventListener('resize', update);
   update();
 });
+
+/* 電話CTA：JST平日9:00〜19:00 以外は受付時間外モーダルを表示 */
+document.addEventListener('DOMContentLoaded', function () {
+  var modal = document.getElementById('hoursModal');
+  if (!modal) return;
+
+  function isWithinHours() {
+    // 現在時刻をJST(UTC+9)に変換
+    var now = new Date();
+    var jst = new Date(now.getTime() + (now.getTimezoneOffset() * 60000) + (9 * 3600000));
+    var day = jst.getDay();      // 0=日, 6=土
+    var hour = jst.getHours();
+    var isWeekday = day >= 1 && day <= 5;
+    return isWeekday && hour >= 9 && hour < 19;
+  }
+
+  function openModal() {
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal() {
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  // tel: リンクを時間外だけインターセプト
+  document.querySelectorAll('a[href^="tel:"]').forEach(function (a) {
+    if (a.closest('#hoursModal')) return; // モーダル内の発信リンクは対象外
+    a.addEventListener('click', function (e) {
+      if (!isWithinHours()) {
+        e.preventDefault();
+        openModal();
+      }
+    });
+  });
+
+  // 閉じる操作
+  modal.querySelectorAll('[data-close]').forEach(function (el) {
+    el.addEventListener('click', function () { closeModal(); });
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && modal.classList.contains('is-open')) closeModal();
+  });
+});
