@@ -482,13 +482,13 @@
   .ab-cta-button:active { transform: translateY(0.8cqw); box-shadow: 0 0.6cqw 1.4cqw rgba(0,0,0,.38); }
   .ab-cta-button .lbl {
     color: #fff;
-    font-size: 6.2cqw;
+    font-size: 5.4cqw;
     font-weight: 900;
     letter-spacing: .01em;
     white-space: nowrap;
     line-height: 1.1;
   }
-  .ab-cta-button .lbl em { font-style: normal; color: #ffd23d; font-size: 7.2cqw; }
+  .ab-cta-button .lbl em { font-style: normal; color: #ffd23d; font-size: 6.2cqw; }
   .ab-cta-button .arw { color: #fff; font-size: 5.6cqw; font-weight: 900; line-height: 1; }
 
   /* ============================================================
